@@ -11,7 +11,7 @@ func Execute(filePath string, currentOS string) (err error) {
 		filePath += "\\install.bat"
 	} else {
 		startUpString = "./"
-		filePath += "\\install.sh"
+		filePath += "/install.sh"
 	}
 	path, err := exec.LookPath(startUpString + filePath)
 	if err != nil {

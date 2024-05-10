@@ -5,8 +5,8 @@ import (
 	"os"
 	"runtime"
 
-	"httpdownloader.com/dotfiles/controllers"
-	"httpdownloader.com/dotfiles/execute"
+	"github.com/reiyuchan/dotfiles-installer/controllers"
+	"github.com/reiyuchan/dotfiles-installer/execute"
 )
 
 func WhichOS() string {

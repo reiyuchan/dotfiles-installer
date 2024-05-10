@@ -1,4 +1,4 @@
-module httpdownloader.com/dotfiles
+module github.com/reiyuchan/dotfiles-installer
 
 go 1.22.3
 

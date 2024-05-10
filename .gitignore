@@ -17,3 +17,6 @@ bin/**
 
 # Go workspace file
 go.work
+
+#tmp files/folders
+_tmp_/**

@@ -1,0 +1,43 @@
+set nocompatible
+set nobackup
+
+set fileencodings=utf-8,iso-2022-jp,euc-jp,cp932
+set encoding=utf-8
+scriptencoding utf-8
+
+map <esc>OA <Up>
+map <esc>OB <Down>
+map <esc>OC <Right>
+map <esc>OD <Left>
+map! <esc>OA <Up>
+map! <esc>OB <Down>
+map! <esc>OC <Right>
+map! <esc>OD <Left>
+
+set backspace=start,eol,indent
+
+
+let $LANG = "en"
+set clipboard=unnamed,autoselect
+set clipboard=unnamedplus
+syntax enable
+set cindent
+set autoindent
+set smartindent
+set cursorline
+highlight CursorLine term=bold cterm=bold
+set ruler
+set number
+set showcmd
+
+set list
+set listchars=tab:>_,trail:_
+highlight IGSpace ctermbg=Red guibg=Red
+match IGSpace /　/
+
+set smartcase
+set hlsearch
+set showmatch
+
+
+set visualbell t_vb=

@@ -1,0 +1,71 @@
+{
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "python.disableInstallationCheck": true,
+  "grunt.autoDetect": "on",
+  "files.autoSaveDelay": 600000,
+  "extensions.autoUpdate": false,
+  "liveServer.settings.donotVerifyTags": true,
+  "liveServer.settings.CustomBrowser": "chrome",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "editor.formatOnType": true,
+  "thunder-client.htmlView": "Preview",
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.linkedEditing": true,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "typescript.suggest.paths": false,
+  "javascript.suggest.paths": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.startupEditor": "none",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.accessibilitySupport": "off",
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar"
+  },
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "redhat.telemetry.enabled": false,
+  "window.zoomLevel": 1,
+  "tailwindCSS.classAttributes": ["class", "className", "ngClass", ".*Style"],
+  "tailwindCSS.experimental.classRegex": [
+    ["classnames\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
+  "telemetry.telemetryLevel": "off",
+  "update.mode": "manual",
+  "workbench.productIconTheme": "icons-carbon"
+}

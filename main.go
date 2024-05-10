@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"runtime"
 
 	"httpdownloader.com/dotfiles/controllers"
@@ -12,25 +13,38 @@ func WhichOS() string {
 	return runtime.GOOS
 }
 
-func Download() {
-	const win_url = "https://raw.githubusercontent.com/reiyuchan/dotfiles/master/quick-installer/install.bat"
-	const unix_url = "https://raw.githubusercontent.com/reiyuchan/dotfiles/master/quick-installer/install.sh"
-	currentOS := WhichOS()
-	var path string
-	switch currentOS {
+func Download() (err error) {
+	// const win_url = "https://raw.githubusercontent.com/reiyuchan/dotfiles/master/quick-installer/install.bat"
+	// const unix_url = "https://raw.githubusercontent.com/reiyuchan/dotfiles/master/quick-installer/install.sh"
+	const url = "https://github.com/reiyuchan/dotfiles/archive/refs/heads/master.zip"
+	path := os.Getenv("HOME")
+	switch currentOS := WhichOS(); currentOS {
 	case "windows":
-		path = "install.bat"
-		file, err := controllers.GetFile(win_url, path)
-		execute.Execute(file, currentOS)
-		fmt.Println("Error:" + err.Error())
+		path += "\\dotfiles"
+		err := controllers.GetFile(url, path)
+		execute.Execute(path, currentOS)
+		if err != nil {
+			return fmt.Errorf("Error:" + err.Error())
+		}
+
 	default:
-		path = "install.sh"
-		file, err := controllers.GetFile(unix_url, path)
-		execute.Execute(file, currentOS)
-		fmt.Println("Error:" + err.Error())
+		path += "/dotfiles"
+		err := controllers.GetFile(url, path)
+		execute.Execute(path, currentOS)
+		if err != nil {
+			return fmt.Errorf("Error:" + err.Error())
+		}
 	}
+	return nil
 }
 
 func main() {
-	Download()
+	err := Download()
+	if err != nil {
+		fmt.Println(err.Error())
+	} else {
+		fmt.Println("Installed successfully..!")
+	}
+	fmt.Println("Press enter to continue..!")
+	fmt.Scanln()
 }

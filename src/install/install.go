@@ -16,7 +16,7 @@ func Install() (err error) {
 	switch currentOS := runtime.GOOS; currentOS {
 	case "windows":
 		path += "\\dotfiles"
-		err = get.GetFile(url, path)
+		err = get.GetFiles(url, path)
 		if err != nil {
 			return fmt.Errorf("Error:" + err.Error())
 		}
@@ -26,7 +26,7 @@ func Install() (err error) {
 		}
 	default:
 		path += "/dotfiles"
-		err := get.GetFile(url, path)
+		err := get.GetFiles(url, path)
 		if err != nil {
 			return fmt.Errorf("Error:" + err.Error())
 		}

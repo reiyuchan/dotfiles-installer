@@ -13,7 +13,7 @@ import (
 var archiveDir = "_tmp_" + string(os.PathSeparator) + "dotfiles.zip"
 var extractedDir = "_tmp_" + string(os.PathSeparator) + "dotfiles"
 
-func GetFile(url string, path string) (err error) {
+func GetFiles(url string, path string) (err error) {
 	res, err := http.Get(url)
 	if err != nil {
 		return err

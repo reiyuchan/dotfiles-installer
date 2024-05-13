@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 
-	"github.com/reiyuchan/dotfiles-installer/download"
+	"github.com/reiyuchan/dotfiles-installer/install"
 )
 
 func main() {
-	err := download.Download()
+	err := install.Install()
 	if err != nil {
 		fmt.Println(err.Error())
 	} else {

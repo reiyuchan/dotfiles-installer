@@ -35,7 +35,10 @@ func GetFile(url string, path string) (err error) {
 		return err
 	}
 	file.Close()
-	extract(file.Name(), extractedDir, path)
+	err = extract(file.Name(), extractedDir, path)
+	if err != nil {
+		return err
+	}
 	if err := os.Remove(archiveDir); err != nil {
 		return err
 	}

@@ -2,6 +2,7 @@
 :: Released under the MIT license
 :: http://opensource.org/licenses/mit-license.php
 
+@echo off
 
 set OS=windows linux darwin
 set OSARCH=amd64 386

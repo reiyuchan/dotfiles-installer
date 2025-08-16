@@ -17,8 +17,10 @@ for os in "${OS[@]}"; do
 		GOARCH=$os_arch
 		if [ "$os" == "windows" ]; then
 		go build -C "$SRC_DIR" -o "$BUILD_DIR/app-$os-$os_arch$WIN_EXT" main.go
-		fi
+		else
 		go build -C "$SRC_DIR" -o "$BUILD_DIR/app-$os-$os_arch" main.go
+		fi
 	done
 done
+
 

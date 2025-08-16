@@ -18,7 +18,10 @@ for %%o in (%OS%) do (
 		if "%%o"=="windows" (
 		go build -C "%SRC_DIR%" -o "%BUILD_DIR%\app-%%o-%%a%WIN_EXT%" main.go
 		)
+		else (
 		go build -C "%SRC_DIR%" -o "%BUILD_DIR%\app-%%o-%%a" main.go
+		)
 	)
 )
+
 

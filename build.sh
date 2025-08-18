@@ -13,14 +13,13 @@ WIN_EXT=".exe"
 
 for os in "${OS[@]}"; do
 	for os_arch in "${OSARCH[@]}"; do
-		GOOS=$os
-		GOARCH=$os_arch
 		if [ "$os" == "windows" ]; then
-		go build -C "$SRC_DIR" -o "$BUILD_DIR/app-$os-$os_arch$WIN_EXT" main.go
+		GOOS=$os GOARCH=$OS_arch go build -C "$SRC_DIR" -o "$BUILD_DIR/app-$os-$os_arch$WIN_EXT" main.go
 		else
-		go build -C "$SRC_DIR" -o "$BUILD_DIR/app-$os-$os_arch" main.go
+		GOOS=$os GOARCH=$OS_arch go build -C "$SRC_DIR" -o "$BUILD_DIR/app-$os-$os_arch" main.go
 		fi
 	done
 done
+
 
 

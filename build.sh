@@ -12,8 +12,11 @@ BUILD_DIR="../bin/"
 WIN_EXT=".exe"
 APP_NAME="workshopdl"
 
-pwd="$(dirname "$0")"
-cd $pwd/$SRC_DIR
+pwd="$(pwd)"
+cwd="$(dirname "$0")"
+
+cd $cwd/$SRC_DIR
+
 for os in "${OS[@]}"; do
 	for os_arch in "${OSARCH[@]}"; do
 		if [ "$os" == "windows" ]; then
@@ -30,4 +33,5 @@ for os in "${OS[@]}"; do
 done
 
 rm -rf resource.syso
+
 cd $pwd

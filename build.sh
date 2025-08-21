@@ -10,16 +10,24 @@ OSARCH=("amd64" 386)
 SRC_DIR="src"
 BUILD_DIR="../bin/"
 WIN_EXT=".exe"
+APP_NAME="workshopdl"
 
+pwd="$(dirname "$0")"
+cd $pwd/$SRC_DIR
 for os in "${OS[@]}"; do
 	for os_arch in "${OSARCH[@]}"; do
 		if [ "$os" == "windows" ]; then
-		GOOS=$os GOARCH=$OS_arch go build -C "$SRC_DIR" -o "$BUILD_DIR/app-$os-$os_arch$WIN_EXT" main.go
+		if [ "$os_arch" == "amd64" ]; then
+		goversioninfo -64 -icon ../res/icon.ico
 		else
-		GOOS=$os GOARCH=$OS_arch go build -C "$SRC_DIR" -o "$BUILD_DIR/app-$os-$os_arch" main.go
+		goversioninfo -icon ../res/icon.ico
+		fi
+		GOOS=$os GOARCH=$os_arch go build -ldflags "-s -w" -o "$BUILD_DIR/$APP_NAME-$os-$os_arch$WIN_EXT" main.go
+		else
+		GOOS=$os GOARCH=$os_arch go build -ldflags "-s -w" -o "$BUILD_DIR/$APP_NAME-$os-$os_arch" main.go
 		fi
 	done
 done
 
-
-
+rm -rf resource.syso
+cd $pwd

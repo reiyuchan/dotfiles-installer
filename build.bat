@@ -4,24 +4,35 @@
 
 @echo off
 
+set pwd=%cd%
+cd /d %~dp0
+
 set OS=windows linux darwin
 set OSARCH=amd64 386
 
 set SRC_DIR=src
 set BUILD_DIR=..\bin
 set WIN_EXT=.exe
+set APP_NAME=app
 
+cd "%SRC_DIR%"
 for %%o in (%OS%) do (
 	for %%a in (%OSARCH%) do (
 		set GOOS=%%o
 		set GOARCH=%%a
 		if "%%o"=="windows" (
-		go build -C "%SRC_DIR%" -o "%BUILD_DIR%\app-%%o-%%a%WIN_EXT%" main.go
+			if "%%a" == "amd64" (
+			goversioninfo.exe -64 -icon ..\res\icon.ico
+			) else (
+			goversioninfo.exe -icon ..\res\icon.ico
+		)
+		go build -ldflags "-s -w" -o "%BUILD_DIR%\%APP_NAME%-%%o-%%a%WIN_EXT%" main.go
 		)
 		else (
-		go build -C "%SRC_DIR%" -o "%BUILD_DIR%\app-%%o-%%a" main.go
+		go build -ldflags "-s -w" -o "%BUILD_DIR%\%APP_NAME%-%%o-%%a" main.go
 		)
 	)
 )
 
-
+del resource.syso
+cd /d %pwd%

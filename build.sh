@@ -10,7 +10,7 @@ OSARCH=("amd64" 386)
 SRC_DIR="src"
 BUILD_DIR="../bin/"
 WIN_EXT=".exe"
-APP_NAME="workshopdl"
+APP_NAME="dotfiles-installer"
 
 pwd="$(pwd)"
 cwd="$(dirname "$0")"

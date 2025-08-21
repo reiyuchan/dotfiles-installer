@@ -13,7 +13,7 @@ set OSARCH=amd64 386
 set SRC_DIR=src
 set BUILD_DIR=..\bin
 set WIN_EXT=.exe
-set APP_NAME=app
+set APP_NAME=dotfiles-installer
 
 cd "%SRC_DIR%"
 for %%o in (%OS%) do (

@@ -1,3 +1,3 @@
-[Creative Common License](https://creativecommons.org/licenses/by/3.0/)
+[ISC License](https://creativecommons.org/licenses/by/3.0/)
 
 - [res/icon.ico](https://lucide.dev/icons/folder-dot)

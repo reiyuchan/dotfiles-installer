@@ -22,17 +22,18 @@ for %%o in (%OS%) do (
 		set GOARCH=%%a
 		if "%%o"=="windows" (
 			if "%%a" == "amd64" (
-			goversioninfo.exe -64 -icon ..\res\icon.ico
+			set GOVERSIONINFO_OPTS=-64
 			) else (
-			goversioninfo.exe -icon ..\res\icon.ico
-		)
-		go build -ldflags "-s -w" -o "%BUILD_DIR%\%APP_NAME%-%%o-%%a%WIN_EXT%" main.go
+			set GOVERSIONINFO_OPTS=
+			)
+		goversioninfo.exe %GOVERSIONINFO_OPTS% -icon ..\res\icon.ico
+		go build -ldflags "-s -w" -o "%BUILD_DIR%\%APP_NAME%-%%o-%%a%WIN_EXT%"
+		del resource.syso
 		)
 		else (
-		go build -ldflags "-s -w" -o "%BUILD_DIR%\%APP_NAME%-%%o-%%a" main.go
+		go build -ldflags "-s -w" -o "%BUILD_DIR%\%APP_NAME%-%%o-%%a"
 		)
 	)
 )
 
-del resource.syso
 cd /d %pwd%

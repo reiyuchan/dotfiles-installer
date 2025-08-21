@@ -20,18 +20,18 @@ cd $cwd/$SRC_DIR
 for os in "${OS[@]}"; do
 	for os_arch in "${OSARCH[@]}"; do
 		if [ "$os" == "windows" ]; then
-		if [ "$os_arch" == "amd64" ]; then
-		goversioninfo -64 -icon ../res/icon.ico
+			if [ "$os_arch" == "amd64" ]; then
+			GOVERSIONINFO_OPTS="-64"
+			else
+			GOVERSIONINFO_OPTS=""
+			fi
+		goversioninfo $GOVERSIONINFO_OPTS -icon ../res/icon.ico
+		GOOS=$os GOARCH=$os_arch go build -ldflags "-s -w" -o "$BUILD_DIR/$APP_NAME-$os-$os_arch$WIN_EXT"
+		rm -rf resource.syso
 		else
-		goversioninfo -icon ../res/icon.ico
-		fi
-		GOOS=$os GOARCH=$os_arch go build -ldflags "-s -w" -o "$BUILD_DIR/$APP_NAME-$os-$os_arch$WIN_EXT" main.go
-		else
-		GOOS=$os GOARCH=$os_arch go build -ldflags "-s -w" -o "$BUILD_DIR/$APP_NAME-$os-$os_arch" main.go
+		GOOS=$os GOARCH=$os_arch go build -ldflags "-s -w" -o "$BUILD_DIR/$APP_NAME-$os-$os_arch"
 		fi
 	done
 done
-
-rm -rf resource.syso
 
 cd $pwd
